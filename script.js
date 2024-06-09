@@ -17,9 +17,37 @@ document.getElementById('calculateButton').addEventListener('click', function() 
     const totalHeightFeet = Math.floor(totalHeightInches / 12);
     const remainingInches = totalHeightInches % 12;
 
-    if (amount > 0) {
-        document.getElementById('output').textContent = `You would be ${totalHeightFeet} feet and ${remainingInches.toFixed(2)} inches tall if you stood on your money.`;
-    } else {
-        document.getElementById('output').textContent = `You would be ${totalHeightFeet} feet and ${remainingInches.toFixed(2)} inches tall if you stood on your money.`;
-    }
+    document.getElementById('output').textContent = `You would be ${totalHeightFeet} feet and ${remainingInches.toFixed(2)} inches tall if you stood on your money.`;
+
+    // Update the money stack height
+    const moneyStackHeight = heightInInches * 10; // Scale for visual effect
+    document.getElementById('moneyStack').style.height = `${moneyStackHeight}px`;
+    document.getElementById('personFigure').style.bottom = `${moneyStackHeight}px`;
+
+    // Update the ruler height
+    updateRuler(totalHeightInches);
 });
+
+function updateRuler(heightInInches) {
+    const ruler = document.getElementById('ruler');
+    ruler.innerHTML = '';
+
+    const heightInPixels = heightInInches * 10; // Scale for visual effect
+    ruler.style.height = `${heightInPixels}px`;
+
+    for (let i = 0; i <= heightInInches; i++) {
+        if (i % 2 === 0) {
+            const mark = document.createElement('div');
+            mark.classList.add('ruler-mark');
+            if (i % 12 === 0) {
+                mark.classList.add('foot-mark');
+                mark.textContent = `${i / 12}'`;
+            } else {
+                mark.classList.add('inch-mark');
+                mark.textContent = `${i % 12}"`;
+            }
+            mark.style.bottom = `${i * 10}px`; // Scale for visual effect
+            ruler.appendChild(mark);
+        }
+    }
+}
