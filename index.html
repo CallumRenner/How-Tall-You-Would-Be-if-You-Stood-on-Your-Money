@@ -8,30 +8,39 @@
 </head>
 <body>
     <div class="container">
-        <h1>How Tall You Would Be if You Stood on Your Money</h1>
-        <form id="moneyForm">
-            <label for="amount">Enter amount of money: </label>
-            <input type="number" id="amount" name="amount" required>
-            
-            <label for="billType">Select bill type: </label>
-            <select id="billType" name="billType" required>
-                <option value="1">$1</option>
-                <option value="5">$5</option>
-                <option value="10">$10</option>
-                <option value="20">$20</option>
-                <option value="100">$100</option>
-            </select>
-            
-            <label for="heightFeet">Enter your height: </label>
-            <input type="number" id="heightFeet" name="heightFeet" placeholder="Feet" required>
-            <input type="number" id="heightInches" name="heightInches" placeholder="Inches" required>
-            
-            <button type="button" id="calculateButton">Calculate</button>
-        </form>
-        <p id="output"></p>
-        <footer>
-            <p>Made by Callum R</p>
-        </footer>
+        <div class="left-side">
+            <h1>How Tall You Would Be if You Stood on Your Money</h1>
+            <form id="moneyForm">
+                <label for="amount">Enter amount of money: </label>
+                <input type="number" id="amount" name="amount" required>
+                
+                <label for="billType">Select bill type: </label>
+                <select id="billType" name="billType" required>
+                    <option value="1">$1</option>
+                    <option value="5">$5</option>
+                    <option value="10">$10</option>
+                    <option value="20">$20</option>
+                    <option value="100">$100</option>
+                </select>
+                
+                <label for="heightFeet">Enter your height: </label>
+                <input type="number" id="heightFeet" name="heightFeet" placeholder="Feet" required>
+                <input type="number" id="heightInches" name="heightInches" placeholder="Inches" required>
+                
+                <button type="button" id="calculateButton">Calculate</button>
+            </form>
+            <p id="output"></p>
+            <footer>
+                <p>Made by Callum R</p>
+            </footer>
+        </div>
+        <div class="right-side">
+            <div id="personContainer">
+                <div id="personFigure">👤</div>
+                <div id="moneyStack"></div>
+                <div id="ruler"></div>
+            </div>
+        </div>
     </div>
     
     <script src="script.js"></script>
